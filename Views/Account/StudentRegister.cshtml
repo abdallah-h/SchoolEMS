@@ -1,0 +1,97 @@
+﻿@model SchoolEMS.Models.Student
+@{
+    ViewBag.Title = "StudentRegister";
+}
+
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>Admin Membership</h2>
+            </div>
+            <div class="body">
+                @using (Html.BeginForm("StudentRegister", "Account", FormMethod.Post, new { @class = "Form-Group" }))
+                {
+                    <div class="row clearfix">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="card">
+                                <div class="body">
+                                    <div class="row clearfix">
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.LabelFor(n => n.parentId, "Parent Id", new { @class = "form-label" })
+                                                    @Html.TextBoxFor(n => n.parentId, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.parentId, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.LabelFor(n => n.name, "Name", new { @class = "form-label" })
+                                                    @Html.TextBoxFor(n => n.name, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.name, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.LabelFor(n => n.code, "Code", new { @class = "form-label" })
+                                                    @Html.TextBoxFor(n => n.code, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.code, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">date_range</i>
+                                                </span>
+                                                <div class="form-line">
+                                                    @Html.LabelFor(a => a.birthdate, "BirthDate", new { @class = "form-label" })
+                                                    @Html.TextBoxFor(a => a.birthdate, new { type = "date", @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.birthdate, null, new { @class = "text-danger", type = "data" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.DropDownListFor(a => a.genderId, null, "Choose Gender", new { @id = "id", @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.genderId, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.LabelFor(n => n.address, new { @class = "form-label" })
+                                                    @Html.TextBoxFor(n => n.address, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.address, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.LabelFor(n => n.age, new { @class = "form-label" })
+                                                    @Html.TextBoxFor(n => n.age, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.age, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <center>
+                                            <input class="btn bg-grey btn-lg btn-block waves-effect" type="submit" value="Save">
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

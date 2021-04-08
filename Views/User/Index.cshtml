@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Admins</h2>
+
+
+<div id="AdminContainer"></div>
+
+@section adminJTable{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#AdminContainer').jtable({
+                title: 'Table of Admins',
+                actions: {
+                    listAction: 'User/AdminList',
+                    createAction: 'User/AddAdmin',
+                    updateAction: 'User/UpdateAdmin',
+                    deleteAction: 'User/DeleteAdmin'
+                },
+                fields: {
+                    id: {
+                        key: true,
+                        list: false
+                    },
+                    email: {
+                        title: 'Email',
+                        width: '50%'
+                    },
+                    password: {
+                        title: 'Password',
+                        type: 'password',
+                        width: '20%',
+                        list: false
+                    },
+                    confirmPassword: {
+                        title: 'Confirm Password',
+                        type: 'password',
+                        width: '20%',
+                        list: false
+                    }
+                },
+                data: ""
+            });
+            $('#AdminContainer').jtable('load');
+        });
+    </script>
+}
+
+

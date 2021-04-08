@@ -1,0 +1,111 @@
+﻿@model SchoolEMS.Models.Task
+@{
+    ViewBag.Title = "Task";
+}
+
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>Upload Attendance Image</h2>
+            </div>
+            <div class="body">
+                @using (Html.BeginForm("Task", "Admin", FormMethod.Post, new { @class = "Form-Group", enctype = "multipart/form-data" }))
+                {
+                    <div class="row clearfix">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="card">
+                                <div class="body">
+                                    <div class="row clearfix">
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.DropDownListFor(a => a.semesterId, null, "Choose Semester", new { @id = "SemesterID", @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.semesterId, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.DropDownListFor(a => a.courseId, null, "Choose Course", new { @id = "CourseList", @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.courseId, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.LabelFor(n => n.taskName, "Task Name", new { @class = "form-label" })
+                                                    @Html.TextBoxFor(n => n.taskName, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.taskName, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.LabelFor(n => n.taskDetails, "Task Details", new { @class = "form-label" })
+                                                    @Html.TextBoxFor(n => n.taskDetails, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.taskDetails, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.TextBoxFor(a => a.taskFile, null, new { type = "file" }) <br />
+                                                    @Html.ValidationMessageFor(a => a.taskFile, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <center>
+                                            <input class="btn bg-grey btn-lg btn-block waves-effect" type="submit" value="Save">
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section coursesScript{
+    <script>
+
+        $(function () {
+
+            $('#CourseList').empty();
+            $('#CourseList').append('<option value=0>Choose Course</option>');
+
+            $('#SemesterID').change(function () {
+                var SemesterId = $(this).val();
+                $('#CourseList').empty();
+                $('#CourseList').append('<option value=0>Choose Course</option>');
+
+                if (SemesterId != null) {
+
+                    $.ajax({
+                        url: '/Admin/GetCourseBySemesterId',
+                        data: { SemesterId: SemesterId },
+                        success: function (res) {
+                            $.each(res, function (i, e) {
+                                $('#CourseList').append(`<option value='${e.id}'>${e.name}</option>`);
+                            });
+                        }
+                    });
+
+                } else {
+                    alert('Choose Course');
+                }
+            })
+
+        });
+    </script>
+}

@@ -1,0 +1,90 @@
+﻿@model SchoolEMS.Models.School
+@{
+    ViewBag.Title = "SchoolRegister";
+}
+
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <center>
+                <a class="btn btn-primary btn-lg btn-block" href="~/School">Go to School JTable View</a>
+            </center>
+            <div class="header">
+                <h2>Admin Membership</h2>
+            </div>
+            <div class="body">
+                @using (Html.BeginForm("SchoolRegister", "Account", FormMethod.Post, new { @class = "Form-Group" }))
+                {
+                    <div class="row clearfix">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="card">
+                                <div class="body">
+                                    <div class="row clearfix">
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.LabelFor(n => n.email, "Email", new { @class = "form-label" })
+                                                    @Html.TextBoxFor(n => n.email, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.email, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.LabelFor(n => n.password, "Password", new { @class = "form-label" })
+                                                    @Html.TextBoxFor(n => n.password, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.password, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.LabelFor(n => n.confirmPassword, "Confirm Password", new { @class = "form-label" })
+                                                    @Html.TextBoxFor(n => n.confirmPassword, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.confirmPassword, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.LabelFor(n => n.schoolName, "School Name", new { @class = "form-label" })
+                                                    @Html.TextBoxFor(n => n.schoolName, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.schoolName, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.LabelFor(n => n.schoolAddress, "School Address", new { @class = "form-label" })
+                                                    @Html.TextBoxFor(n => n.schoolAddress, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.schoolAddress, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.LabelFor(n => n.mobile, "Mobile", new { @class = "form-label" })
+                                                    @Html.TextBoxFor(n => n.mobile, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.mobile, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <center>
+                                            <input class="btn bg-grey btn-lg btn-block waves-effect" type="submit" value="Save">
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

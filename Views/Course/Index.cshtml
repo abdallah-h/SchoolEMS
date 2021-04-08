@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h2 style="margin-top:30px;">Courses</h2>
+
+<div id="CourseContainer"></div>
+
+@section courseJTable{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#CourseContainer').jtable({
+                title: 'Table of Courses',
+                actions: {
+                    listAction: 'Course/CourseList',
+                    createAction: 'Course/AddCourse',
+                    updateAction: 'Course/UpdateCourse',
+                    deleteAction: 'Course/DeleteCourse'
+                },
+                fields: {
+                    id: {
+                        key: true,
+                        list: false
+                    },
+                    name: {
+                        title: 'Name',
+                        width: '40%'
+                    },
+                    courseCode: {
+                        title: 'Course Code',
+                        width: '20%'
+                    },
+                    semesterId: {
+                        title: 'Semester',
+                        width: '20%'
+                    }
+                },
+                data:""
+            });
+            $('#CourseContainer').jtable('load');
+        });
+    </script>
+}
+
+

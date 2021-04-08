@@ -1,0 +1,133 @@
+﻿@model SchoolEMS.Models.Parent
+
+@{
+    ViewBag.Title = "ParentRegister";
+}
+
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>Admin Membership</h2>
+            </div>
+            <div class="body">
+                @using (Html.BeginForm("ParentRegister", "Account", FormMethod.Post, new { @class = "Form-Group" }))
+                {
+                    <div class="row clearfix">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="card">
+                                <div class="body">
+                                    <div class="row clearfix">
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.LabelFor(a => a.email, "Email", new { @class = "form-label" })
+                                                    @Html.TextBoxFor(a => a.email, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.email, null, new { @class = "text-danger", type = "data" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.LabelFor(a => a.password, "Password", new { @class = "form-label" })
+                                                    @Html.TextBoxFor(a => a.password, new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.LabelFor(a => a.confirmPassword, "Confirm Password", new { @class = "form-label" })
+                                                    @Html.TextBoxFor(a => a.confirmPassword, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.confirmPassword, null, new { @class = "text-danger", type = "data" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.LabelFor(a => a.firstName, "First Name", new { @class = "form-label" })
+                                                    @Html.TextBoxFor(a => a.firstName, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.firstName, null, new { @class = "text-danger", type = "data" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.LabelFor(a => a.lastName, "Last Name", new { @class = "form-label" })
+                                                    @Html.TextBoxFor(a => a.lastName, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.lastName, null, new { @class = "text-danger", type = "data" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">date_range</i>
+                                                </span>
+                                                <div class="form-line">
+                                                    @Html.LabelFor(a => a.birthdate, "BirthDate", new { @class = "form-label" })
+                                                    @Html.TextBoxFor(a => a.birthdate, new { type = "date", @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.birthdate, null, new { @class = "text-danger", type = "data" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.LabelFor(a => a.mobile, "Mobile", new { @class = "form-label" })
+                                                    @Html.TextBoxFor(a => a.mobile, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.mobile, null, new { @class = "text-danger", type = "data" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.LabelFor(a => a.address, "Address", new { @class = "form-label" })
+                                                    @Html.TextBoxFor(a => a.address, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.address, null, new { @class = "text-danger", type = "data" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.LabelFor(a => a.nationalId, "National Id", new { @class = "form-label" })
+                                                    @Html.TextBoxFor(a => a.nationalId, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.nationalId, null, new { @class = "text-danger", type = "data" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.DropDownListFor(a => a.genderId, null, "Choose Gender", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.genderId, null, new { @class = "text-danger" })
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.DropDownListFor(a => a.cityId, null, "Choose City", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.cityId, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <center>
+                                            <input class="btn bg-grey btn-lg btn-block waves-effect" type="submit" value="Save">
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

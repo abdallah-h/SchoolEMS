@@ -1,0 +1,50 @@
+﻿@model SchoolEMS.Models.Grade
+
+@{
+    ViewBag.Title = "Grade";
+}
+
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>Upload Grade Image</h2>
+            </div>
+            <div class="body">
+                @using (Html.BeginForm("Grade", "Admin", FormMethod.Post, new { @class = "Form-Group", enctype = "multipart/form-data" }))
+                {
+                    <div class="row clearfix">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="card">
+                                <div class="body">
+                                    <div class="row clearfix">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    @Html.DropDownListFor(a => a.gradeTypeId, null, "Choose Grade Type", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.gradeTypeId, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    @Html.TextBoxFor(a => a.gradeFile, null, new { type = "file" }) <br />
+                                                    @Html.ValidationMessageFor(a => a.gradeFile, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <center>
+                                        <input class="btn bg-grey btn-lg btn-block waves-effect" type="submit" value="Save">
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,44 @@
+﻿@model SchoolEMS.Models.Event
+
+@{
+    ViewBag.Title = "Event";
+}
+
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>Add Events Details</h2>
+            </div>
+            <div class="body">
+
+                @using (Html.BeginForm("Event", "Admin", FormMethod.Post, new { @class = "Form-Group" }))
+                {
+                    <div class="row clearfix">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="card">
+                                <div class="body">
+                                    <h2 class="card-inside-title">Event Details</h2>
+                                    <div class="row clearfix">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    @Html.TextAreaFor(e => e.details, new { @placeholder = "Please type what you want....", @row = 4, @class = "form-control" })
+                                                    @Html.ValidationMessageFor(a => a.details, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <center>
+                        <input class="btn bg-grey btn-lg btn-block waves-effect" type="submit" value="Save">
+                    </center>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,76 @@
+﻿@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Sign In</title>
+    <!-- Favicon-->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+
+    @Styles.Render("~/Content/css")
+</head>
+
+<body class="login-page">
+    <div class="login-box">
+        <div class="logo">
+            <a href="javascript:void(0);">School<b>System</b></a>
+            <small>School Management System</small>
+        </div>
+        <div class="card">
+            <div class="body">
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "Form-Group" }))
+                {
+                    <div class="msg">Sign in to start your session</div>
+                    <span style="color:red">
+
+                    </span>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">email</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="email" name="Email" class="form-control" autocomplete="off" placeholder="Email Address" required="required" autofocus="autofocus" />
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">lock</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="password" name="Password" class="form-control" autocomplete="off" placeholder="Password" required="required" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <center>
+                                <button class="btn btn-block bg-pink waves-effect" type="submit">SIGN IN</button>
+                            </center>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+
+</body>
+
+</html>
