@@ -56,6 +56,7 @@ School Management System is Admin dashboard. It provide login system with regist
 ### Built With
 
 - [ASP.NET MVC](https://dotnet.microsoft.com/apps/aspnet/mvc)
+- [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-2019)
 - [JavaScript](https://www.javascript.com/)
 - [JQuery](https://jquery.com)
 - [Bootstrap](https://getbootstrap.com)
